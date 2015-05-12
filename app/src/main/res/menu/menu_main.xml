@@ -1,0 +1,52 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/menu_add"
+        android:icon="@mipmap/actionbar_add_icon"
+        android:title="add"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_delete"
+        android:icon="@mipmap/ic_menu_delete"
+        android:title="delete"
+        app:showAsAction="always" />
+
+    <!-- ListView-->
+    <item
+        android:id="@+id/menu_h_listview"
+        android:orderInCategory="100"
+        android:title="Horizontal-ListView"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_v_listview"
+        android:orderInCategory="100"
+        android:title="Vertical-ListView"
+        app:showAsAction="never" />
+
+    <!-- GridView-->
+    <item
+        android:id="@+id/menu_h_gridview"
+        android:orderInCategory="100"
+        android:title="Horizontal-GridView"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_v_gridview"
+        android:orderInCategory="100"
+        android:title="Vertical-GridView"
+        app:showAsAction="never" />
+
+    <!-- Staggered-->
+    <item
+        android:id="@+id/menu_h_staggered"
+        android:orderInCategory="100"
+        android:title="Horizontal-Staggered"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_v_staggered"
+        android:orderInCategory="100"
+        android:title="Vertical-Staggered"
+        app:showAsAction="never" />
+</menu>
