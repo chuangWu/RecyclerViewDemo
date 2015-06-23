@@ -3,6 +3,7 @@ package com.example.administrator.recyclerviewdemo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -85,9 +89,21 @@ public class RecyclerActivity extends ActionBarActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(flag ? LinearLayoutManager.VERTICAL : LinearLayoutManager.HORIZONTAL);
         mRecyclerView.setLayoutManager(layoutManager);
+
+        //添加布局动画
+        addLayoutAnimation();
+
         mRecyclerView.setAdapter(new RecyclerListViewAdapter(this, flag));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setBackgroundColor(Color.WHITE);
+    }
+
+    private void addLayoutAnimation() {
+        Animation fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+        fadeIn.setDuration(500L);
+        LayoutAnimationController layoutAnimationController = new LayoutAnimationController(fadeIn);
+        this.mRecyclerView.setLayoutAnimation(layoutAnimationController);
+        this.mRecyclerView.startLayoutAnimation();
     }
 
     private void initGridView(boolean flag) {
@@ -98,6 +114,7 @@ public class RecyclerActivity extends ActionBarActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setBackgroundColor(Color.WHITE);
     }
+
 
     /**
      * 1.屏蔽Menu按键
